@@ -44,6 +44,10 @@ public class Tela2 extends JFrame {
     private JTextField txtFormacao;
     private JLabel lblMleciona;
     private JTextField txtMleciona;
+    private JLabel lblLogin;
+    private JTextField txtLogin;
+    private JLabel lblSenha;
+    private JTextField txtSenha;
 //    private JLabel lblTipo;
 //    private JComboBox cmbTipo;
     private final String[] tiposSexo = {
@@ -60,7 +64,7 @@ public class Tela2 extends JFrame {
     
 
 public Tela2 () {
-    setSize(400, 600);
+    setSize(400, 700);
     setTitle("Professores");
     ctn = getContentPane();
     lblNome = new JLabel (" Nome");
@@ -77,6 +81,10 @@ public Tela2 () {
     txtFormacao = new JTextField();
     lblMleciona = new JLabel(" Matéria Lecionada");
     txtMleciona = new JTextField();
+    lblLogin = new JLabel(" Login");
+    txtLogin = new JTextField();
+    lblSenha = new JLabel(" Senha");
+    txtSenha = new JTextField();
     
     
     
@@ -154,8 +162,12 @@ public Tela2 () {
     txtFormacao.setBounds(150, 400, 200, 25);
     lblMleciona.setBounds(0, 450, 200, 25);
     txtMleciona.setBounds(150, 450, 200, 25);
-    btnOK.setBounds(200, 500, 50, 50);
-    btnTrocar.setBounds(1, 520, 100, 40);
+     lblLogin.setBounds(0, 500, 100, 25);
+    txtLogin.setBounds(150, 500, 200, 25);
+    lblSenha.setBounds(0, 550, 100, 25);
+    txtSenha.setBounds(150, 550, 200, 25);
+    btnOK.setBounds(200, 600, 50, 50);
+    btnTrocar.setBounds(1, 620, 100, 40);
     ctn.add(lblNome);
     ctn.add(txtNome);
     ctn.add(lblIdade);
@@ -176,6 +188,10 @@ public Tela2 () {
     ctn.add(txtFormacao);
     ctn.add(lblMleciona);
     ctn.add(txtMleciona);
+     ctn.add(lblLogin);
+    ctn.add(txtLogin);
+    ctn.add(lblSenha);
+    ctn.add(txtSenha);
     ctn.add(btnOK);
     ctn.add(btnTrocar);
     setVisible(true);
@@ -186,10 +202,10 @@ public Tela2 () {
 
     
 }
-//    public static void main (String[] args) {
-// 
-//        new Tela2 ();
-//    }
+    public static void main (String[] args) {
+ 
+        new Tela2 ();
+    }
     
     private void cliqueBtnEnviar(){
         String nome = txtNome.getText(),
@@ -201,7 +217,9 @@ public Tela2 () {
                telefone = txtTelefone.getText(),
                email = txtEmail.getText(),
                formacao = txtFormacao.getText(),
-               materia = txtMleciona.getText();
+               materia = txtMleciona.getText(),
+               login = txtLogin.getText(),
+               senha = txtSenha.getText();
         
         
         
@@ -218,6 +236,8 @@ public Tela2 () {
         System.out.println("email : " + email);
         System.out.println("formacao : " + formacao);
         System.out.println("materia : " + materia);
+        System.out.println("login : " + login);
+        System.out.println("senha : " + senha);
         
         try(PrintWriter pw = new PrintWriter(new File("professores"))){
             pw.println("nome : " + nome);
@@ -230,11 +250,13 @@ public Tela2 () {
             pw.println("email : " + email);
             pw.println("formacao : " + formacao);
             pw.println("materia : " + materia);
+            pw.println("login : " + login);
+            pw.println("senha : " + senha);
         }catch(FileNotFoundException e){
             System.out.println("Arquivo não existe");
         }
         try {
-             Conection2.insereProfessores(nome, idade, sexo, cpf, data, cep, telefone, email, formacao, materia);
+             Conection2.insereProfessores(nome, idade, sexo, cpf, data, cep, telefone, email, formacao, materia, login, senha);
         } catch (Exception e) {
             System.out.println(e);
         }
