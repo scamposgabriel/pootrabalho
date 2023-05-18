@@ -53,7 +53,7 @@ public class Tela2 extends JFrame {
     private final String[] tiposSexo = {
     "Masculino",  "Feminino", "Não-binário", "Prefiro não informar", "Outro"};
     private JButton btnOK;
-    private JButton btnTrocar;
+    private JButton btnVoltar;
     private Container ctn;
     
     
@@ -116,7 +116,7 @@ public Tela2 () {
     lblSexo = new JLabel(" Sexo");
     cmbSexo = new JComboBox (tiposSexo);
     btnOK = new JButton("Enviar");
-    btnTrocar = new JButton("Trocar tela");
+    btnVoltar = new JButton("Voltar");
      
     btnOK.addActionListener(new ActionListener() {
         @Override
@@ -125,10 +125,10 @@ public Tela2 () {
         }
     });
     
-    btnTrocar.addActionListener(new ActionListener() {
+    btnVoltar.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            cliqueBtnTrocar();
+            cliqueBtnVoltar();
             }
     });
     
@@ -162,12 +162,12 @@ public Tela2 () {
     txtFormacao.setBounds(150, 400, 200, 25);
     lblMleciona.setBounds(0, 450, 200, 25);
     txtMleciona.setBounds(150, 450, 200, 25);
-     lblLogin.setBounds(0, 500, 100, 25);
+    lblLogin.setBounds(0, 500, 100, 25);
     txtLogin.setBounds(150, 500, 200, 25);
     lblSenha.setBounds(0, 550, 100, 25);
     txtSenha.setBounds(150, 550, 200, 25);
     btnOK.setBounds(200, 600, 50, 50);
-    btnTrocar.setBounds(1, 620, 100, 40);
+    btnVoltar.setBounds(1, 620, 100, 40);
     ctn.add(lblNome);
     ctn.add(txtNome);
     ctn.add(lblIdade);
@@ -193,7 +193,7 @@ public Tela2 () {
     ctn.add(lblSenha);
     ctn.add(txtSenha);
     ctn.add(btnOK);
-    ctn.add(btnTrocar);
+    ctn.add(btnVoltar);
     setVisible(true);
     setLayout(null);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -261,8 +261,8 @@ public Tela2 () {
             System.out.println(e);
         }
     }
-    private void cliqueBtnTrocar(){
+    private void cliqueBtnVoltar(){
          this.dispose();
-        new Tela1();
+        new Cadastro();
     }
 }

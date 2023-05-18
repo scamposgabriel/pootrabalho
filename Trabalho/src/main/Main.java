@@ -4,6 +4,8 @@
  */
 package main;
 
+import gui.Cadastro;
+import gui.Login;
 import gui.Tela1;
 import gui.Tela2;
 
@@ -15,7 +17,7 @@ public class Main {
     
     public static void main (String[] args) {
  
-        Tela1 tela1 = new Tela1 ();
+        Login login  = new Login();
         
     }
     
