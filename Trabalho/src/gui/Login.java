@@ -75,12 +75,24 @@ public class Login extends JFrame {
         }
     });
     
+    btnOK.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            cliqueBtnOK();
+            }
+    });
+    
 
     
 }
     private void cliqueBtnCd(){
          this.dispose();
         new Cadastro();
+     }
+    
+    private void cliqueBtnOK(){
+         this.dispose();
+        new Logado();
      }
     
 }
