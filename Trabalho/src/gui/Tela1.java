@@ -44,10 +44,10 @@ public class Tela1 extends JFrame {
     private JFormattedTextField txtTelefone;
     private JLabel lblEmail;
     private JTextField txtEmail;
-    private JLabel lblLogin;
-    private JTextField txtLogin;
-    private JLabel lblSenha;
-    private JTextField txtSenha;
+//    private JLabel lblLogin;
+//    private JTextField txtLogin;
+//    private JLabel lblSenha;
+//    private JTextField txtSenha;
 //    private JLabel lblTipo;
 //    private JComboBox cmbTipo;
     private final String[] tiposSexo = {
@@ -81,10 +81,10 @@ public Tela1 () {
     lblTelefone = new JLabel(" Telefone");
     lblEmail = new JLabel(" Email");
     txtEmail = new JTextField();
-    lblLogin = new JLabel(" Login");
-    txtLogin = new JTextField();
-    lblSenha = new JLabel(" Senha");
-    txtSenha = new JTextField();
+//    lblLogin = new JLabel(" Login");
+//    txtLogin = new JTextField();
+//    lblSenha = new JLabel(" Senha");
+//    txtSenha = new JTextField();
     
     
     
@@ -166,10 +166,10 @@ public Tela1 () {
     txtTelefone.setBounds(150, 400, 200, 25);
     lblEmail.setBounds(0, 450, 100, 25);
     txtEmail.setBounds(150, 450, 200, 25);
-    lblLogin.setBounds(0, 500, 100, 25);
-    txtLogin.setBounds(150, 500, 200, 25);
-    lblSenha.setBounds(0, 550, 100, 25);
-    txtSenha.setBounds(150, 550, 200, 25);
+//    lblLogin.setBounds(0, 500, 100, 25);
+//    txtLogin.setBounds(150, 500, 200, 25);
+//    lblSenha.setBounds(0, 550, 100, 25);
+//    txtSenha.setBounds(150, 550, 200, 25);
     btnOK.setBounds(200, 600, 50, 50);
     btnVoltar.setBounds(1, 620, 100, 40);
     ctn.add(lblNome);
@@ -192,10 +192,10 @@ public Tela1 () {
     ctn.add(txtTelefone);
     ctn.add(lblEmail);
     ctn.add(txtEmail);
-    ctn.add(lblLogin);
-    ctn.add(txtLogin);
-    ctn.add(lblSenha);
-    ctn.add(txtSenha);
+//    ctn.add(lblLogin);
+//    ctn.add(txtLogin);
+//    ctn.add(lblSenha);
+//    ctn.add(txtSenha);
     ctn.add(btnOK);
     ctn.add(btnVoltar);
     setVisible(true);
@@ -225,10 +225,10 @@ public Tela1 () {
                data  = txtData.getText(),
                cep = txtCep.getText(),
                telefone = txtTelefone.getText(),
-               email = txtEmail.getText(),
-               login = txtLogin.getText(),
-               senha = txtSenha.getText();
-               
+               email = txtEmail.getText();
+//               login = txtLogin.getText(),
+//               senha = txtSenha.getText();
+//               
                
         
         System.out.println("nome : " + nome);
@@ -241,8 +241,8 @@ public Tela1 () {
         System.out.println("cep : " + cep);
         System.out.println("telefone : " + telefone);
         System.out.println("email : " + email);
-        System.out.println("login : " + login);
-        System.out.println("senha : " + senha);
+//        System.out.println("login : " + login);
+//        System.out.println("senha : " + senha);
         
         try(PrintWriter pw = new PrintWriter(new File("alunos"))){
             pw.println("nome : " + nome);
@@ -255,13 +255,13 @@ public Tela1 () {
             pw.println("cep : " + cep);
             pw.println("telefone : " + telefone);
             pw.println("email : " + email);
-            pw.println("login : " + login);
-            pw.println("senha : " + senha);
+//            pw.println("login : " + login);
+//            pw.println("senha : " + senha);
         }catch(FileNotFoundException e){
             System.out.println("Arquivo não existe");
         }
         try {
-             BDConnection.insereUsuario(nome, idade, altura, peso, sexo, cpf, data, cep, telefone, email, login, senha);
+             BDConnection.insereUsuario(nome, idade, altura, peso, sexo, cpf, data, cep, telefone, email);
         } catch (Exception e) {
             System.out.println(e);
         }

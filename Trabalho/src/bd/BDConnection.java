@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class BDConnection {
   
     
-    public static void insereUsuario(String nome, String idade, String altura, String peso, String sexo, String cpf,  String data, String cep, String telefone, String email, String login, String senha) throws SQLException, ClassNotFoundException{
+    public static void insereUsuario(String nome, String idade, String altura, String peso, String sexo, String cpf,  String data, String cep, String telefone, String email) throws SQLException, ClassNotFoundException{
         Class.forName("com.mysql.jdbc.Driver");
         String urlJDBC = "jdbc:mysql://localhost:3306/escola";
         try (Connection conexao = (Connection) DriverManager.getConnection(urlJDBC,
@@ -26,8 +26,8 @@ public class BDConnection {
             
             Statement comando = (Statement) conexao.createStatement();
         
-        comando.execute(("INSERT INTO alunos (nome, idade, altura, peso, sexo,  cpf, data, cep, telefone, email, login, senha ) values"
-                + " ('"+nome+"', '"+idade+"', '"+altura+"', '"+peso+"', '"+sexo+"', '"+cpf+"', '"+data+"', '"+cep+"', '"+telefone+"', '"+email+"', '"+login+"', '"+senha+"')"));
+        comando.execute(("INSERT INTO alunos (nome, idade, altura, peso, sexo,  cpf, data, cep, telefone, email) values"
+                + " ('"+nome+"', '"+idade+"', '"+altura+"', '"+peso+"', '"+sexo+"', '"+cpf+"', '"+data+"', '"+cep+"', '"+telefone+"', '"+email+"')"));
         
         conexao.close();
         
