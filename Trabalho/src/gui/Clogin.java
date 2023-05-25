@@ -4,7 +4,6 @@
  */
 package gui;
 
-import bd.BDConnection;
 import bd.UConection;
 import java.awt.Container;
 import java.awt.event.ActionEvent;

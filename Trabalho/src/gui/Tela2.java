@@ -115,7 +115,7 @@ public Tela2 () {
 
     lblSexo = new JLabel(" Sexo");
     cmbSexo = new JComboBox (tiposSexo);
-    btnOK = new JButton("Enviar");
+    btnOK = new JButton("Continuar");
     btnVoltar = new JButton("Voltar");
      
     btnOK.addActionListener(new ActionListener() {
@@ -166,7 +166,7 @@ public Tela2 () {
 //    txtLogin.setBounds(150, 500, 200, 25);
 //    lblSenha.setBounds(0, 550, 100, 25);
 //    txtSenha.setBounds(150, 550, 200, 25);
-    btnOK.setBounds(200, 600, 50, 50);
+    btnOK.setBounds(200, 600, 100, 50);
     btnVoltar.setBounds(1, 620, 100, 40);
     ctn.add(lblNome);
     ctn.add(txtNome);
@@ -192,7 +192,7 @@ public Tela2 () {
 //    ctn.add(txtLogin);
 //    ctn.add(lblSenha);
 //    ctn.add(txtSenha);
-//    ctn.add(btnOK);
+    ctn.add(btnOK);
     ctn.add(btnVoltar);
     setVisible(true);
     setLayout(null);
@@ -208,6 +208,9 @@ public Tela2 () {
     }
     
     private void cliqueBtnEnviar(){
+        
+         this.dispose();
+        new Clogin();
         String nome = txtNome.getText(),
                idade = txtIdade.getText(), 
                sexo = cmbSexo.getSelectedItem().toString(),
