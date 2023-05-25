@@ -8,8 +8,10 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,23 +21,35 @@ public class Deletando extends JFrame {
     
      private JLabel lblDeletando;
      private JButton btnSair;
+     private JLabel lblCPF;
+     private JTextField txtCPF;
+     private JButton btnDeletar;
      private Container ctn;
      
      public Deletando () {
      setSize(400, 400);
      setTitle("Deletando");
      ctn = getContentPane();
-     lblDeletando = new JLabel ("Deletando");
+     lblDeletando = new JLabel ("Digite o CPF");
+     lblCPF = new JLabel ("CPF");
+     txtCPF = new JTextField();
      btnSair = new JButton("Sair");
+     btnDeletar = new JButton("Deletar");
      
      ctn.setLayout(null);
      
      lblDeletando.setBounds(190, 50, 100, 25);
      btnSair.setBounds(0, 330, 50, 30);
+     lblCPF.setBounds(100, 100, 100, 25);
+     txtCPF.setBounds(150, 100, 200, 25);
+     btnDeletar.setBounds(200, 150, 100, 50);
      
      
      ctn.add(lblDeletando);
+     ctn.add(lblCPF);
+     ctn.add(txtCPF);
      ctn.add(btnSair);
+     ctn.add(btnDeletar);
      
     setVisible(true);
     setLayout(null);
