@@ -20,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author gabrielcampos
  */
-public class Clogin extends JFrame {
+public class Clogin2 extends JFrame {
     
     private JLabel lblLogin;
     private JTextField txtLogin;
@@ -33,7 +33,7 @@ public class Clogin extends JFrame {
     
     
     
-    public Clogin () {
+    public Clogin2 () {
     setSize(360, 360);
     setTitle("Criando Login");
     ctn = getContentPane();
@@ -123,7 +123,7 @@ public class Clogin extends JFrame {
     
     private void cliqueBtnVoltar(){
      this.dispose();
-        new Tela1();
+        new Tela2();
     }
     
     

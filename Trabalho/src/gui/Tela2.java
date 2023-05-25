@@ -210,7 +210,7 @@ public Tela2 () {
     private void cliqueBtnEnviar(){
         
          this.dispose();
-        new Clogin();
+        new Clogin2();
         String nome = txtNome.getText(),
                idade = txtIdade.getText(), 
                sexo = cmbSexo.getSelectedItem().toString(),
