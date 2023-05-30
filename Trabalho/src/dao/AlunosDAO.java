@@ -50,6 +50,25 @@ public class AlunosDAO {
         }
         
     }
+    
+    
+    public void editar (Alunos alunos){
+        String sql = "UPDATE alunos SET nome=?, idade=?, telefone=?, email=? WHERE CPF=?";
+        try {
+            PreparedStatement stmt = (PreparedStatement) this.conn.prepareStatement(sql);
+            stmt.setString(1, alunos.getNome());
+            stmt.setString(2, alunos.getIdade());
+            stmt.setString(3, alunos.getTelefone());
+            stmt.setString(4, alunos.getEmail());
+            stmt.setString(5, alunos.getCpf());
+            stmt.execute();
+        } catch (SQLException e) {
+            System.out.println("Erro ao editar curso; " + e.getMessage());
+        }
+    }
+    
+    
+    
     public Alunos getAlunos(String cpf)
     {
         String sql = "SELECT * FROM alunos WHERE cpf = ?";
