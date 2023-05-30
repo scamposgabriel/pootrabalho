@@ -4,6 +4,7 @@
  */
 package gui;
 
+import dao.AlunosDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -63,6 +64,17 @@ public class Deletando extends JFrame {
             cliqueBtnSair();
         }
     });
+     
+     btnDeletar.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+             String cpf = txtCPF.getText();
+             AlunosDAO alunosDAO = new AlunosDAO();
+             alunosDAO.excluir(cpf);
+             
+             txtCPF.setText("");
+            }
+     });
      
      
      

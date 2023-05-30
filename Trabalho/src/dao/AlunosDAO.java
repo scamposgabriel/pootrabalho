@@ -68,6 +68,18 @@ public class AlunosDAO {
     }
     
     
+    public void excluir(String cpf){
+        String sql = "DELETE FROM alunos WHERE cpf =?";
+        try {
+            PreparedStatement stmt = (PreparedStatement) this.conn.prepareStatement(sql);
+            stmt.setString(1, cpf);
+            stmt.execute();
+        } catch (Exception e) {
+            System.out.println("Erro ao excluir curso: " + e.getMessage());
+        }
+    }
+    
+    
     
     public Alunos getAlunos(String cpf)
     {
