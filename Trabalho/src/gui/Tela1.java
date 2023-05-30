@@ -6,13 +6,12 @@ package gui;
 
 //1 passo 
 
-import bd.BDConnection;
+
+import beans.Alunos;
+import dao.AlunosDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -228,45 +227,27 @@ public Tela1 () {
                cep = txtCep.getText(),
                telefone = txtTelefone.getText(),
                email = txtEmail.getText();
-//               login = txtLogin.getText(),
-//               senha = txtSenha.getText();
-//               
+        
+        Alunos alunos = new Alunos();
+        alunos.setNome(nome);
+        alunos.setIdade(idade);
+        alunos.setAltura(altura);
+        alunos.setPeso(peso);
+        alunos.setSexo(sexo);
+        alunos.setCpf(cpf);
+        alunos.setData(data);
+        alunos.setCep(cep);
+        alunos.setTelefone(telefone);
+        alunos.setEmail(email);
+        
+        AlunosDAO alunosDAO = new AlunosDAO();
+        alunosDAO.inserir(alunos);
+        
+        txtNome.setText("");
+
                
         
-        System.out.println("nome : " + nome);
-        System.out.println("idade : " + idade);
-        System.out.println("altura : " + altura);
-        System.out.println("peso : " + peso);
-        System.out.println("sexo : " + sexo);
-        System.out.println("cpf : " + cpf);
-        System.out.println("data : " + data);
-        System.out.println("cep : " + cep);
-        System.out.println("telefone : " + telefone);
-        System.out.println("email : " + email);
-//        System.out.println("login : " + login);
-//        System.out.println("senha : " + senha);
         
-        try(PrintWriter pw = new PrintWriter(new File("alunos"))){
-            pw.println("nome : " + nome);
-            pw.println("idade : " + idade);
-            pw.println("altura : " + altura);
-            pw.println("peso    : " + peso);
-            pw.println("sexo : " + sexo);
-            pw.println("cpf : " + cpf);
-            pw.println("data : " + data);
-            pw.println("cep : " + cep);
-            pw.println("telefone : " + telefone);
-            pw.println("email : " + email);
-//            pw.println("login : " + login);
-//            pw.println("senha : " + senha);
-        }catch(FileNotFoundException e){
-            System.out.println("Arquivo não existe");
-        }
-        try {
-             BDConnection.insereUsuario(nome, idade, altura, peso, sexo, cpf, data, cep, telefone, email);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
         
      
     }

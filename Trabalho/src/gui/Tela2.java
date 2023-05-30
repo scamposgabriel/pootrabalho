@@ -6,13 +6,11 @@ package gui;
 
 //1 passo 
 
-import bd.Conection2;
+import beans.Professores;
+import dao.ProfessoresDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -221,48 +219,23 @@ public Tela2 () {
                email = txtEmail.getText(),
                formacao = txtFormacao.getText(),
                materia = txtMleciona.getText();
-//               login = txtLogin.getText(),
-//               senha = txtSenha.getText();
         
+        Professores professores = new Professores();
+        professores.setNome(nome);
+        professores.setIdade(idade);
+        professores.setSexo(sexo);
+        professores.setCpf(cpf);
+        professores.setData(data);
+        professores.setCep(cep);
+        professores.setTelefone(telefone);
+        professores.setEmail(email);
+        professores.setFormacao(formacao);
+        professores.setMateria(materia);
         
+        ProfessoresDAO professoresDAO = new ProfessoresDAO();
+        professoresDAO.inserir(professores);
         
-               
-               
-        
-        System.out.println("nome : " + nome);
-        System.out.println("idade : " + idade);
-        System.out.println("sexo : " + sexo);
-        System.out.println("cpf : " + cpf);
-        System.out.println("data : " + data);
-        System.out.println("cep : " + cep);
-        System.out.println("telefone : " + telefone);
-        System.out.println("email : " + email);
-        System.out.println("formacao : " + formacao);
-        System.out.println("materia : " + materia);
-//        System.out.println("login : " + login);
-//        System.out.println("senha : " + senha);
-        
-        try(PrintWriter pw = new PrintWriter(new File("professores"))){
-            pw.println("nome : " + nome);
-            pw.println("idade : " + idade);
-            pw.println("sexo : " + sexo);
-            pw.println("cpf : " + cpf);
-            pw.println("data : " + data);
-            pw.println("cep : " + cep);
-            pw.println("telefone : " + telefone);
-            pw.println("email : " + email);
-            pw.println("formacao : " + formacao);
-            pw.println("materia : " + materia);
-//            pw.println("login : " + login);
-//            pw.println("senha : " + senha);
-        }catch(FileNotFoundException e){
-            System.out.println("Arquivo não existe");
-        }
-        try {
-             Conection2.insereProfessores(nome, idade, sexo, cpf, data, cep, telefone, email, formacao, materia);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        txtNome.setText("");
     }
     private void cliqueBtnVoltar(){
          this.dispose();

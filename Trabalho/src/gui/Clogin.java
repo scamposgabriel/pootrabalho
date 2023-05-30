@@ -4,13 +4,11 @@
  */
 package gui;
 
-import bd.UConection;
+import beans.Logins;
+import dao.LoginsDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -103,20 +101,16 @@ public class Clogin extends JFrame {
                
         
         
-        System.out.println("login : " + login);
-        System.out.println("senha : " + senha);
+        Logins logins = new Logins();
+        logins.setLogin(login);
+        logins.setSenha(senha);
         
-        try(PrintWriter pw = new PrintWriter(new File("lusuarios"))){
-            pw.println("login : " + login);
-            pw.println("senha : " + senha);
-        }catch(FileNotFoundException e){
-            System.out.println("Arquivo não existe");
-        }
-        try {
-             UConection.insereLusuario(login, senha);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        
+        LoginsDAO loginsDAO = new LoginsDAO();
+        loginsDAO.inserir(logins);
+        
+        txtLogin.setText("");
+        
         
      
     }

@@ -4,12 +4,16 @@
  */
 package gui;
 
+import beans.Alunos;
+import dao.AlunosDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -19,23 +23,68 @@ public class Listando extends JFrame {
     
      private JLabel lblListando;
      private JButton btnSair;
+     private JButton btnListar;
+     private JLabel lblCpf;
+     private JTextField txtCpf;
+     private JLabel lblNome;
+     private JTextField txtNome;
+     private JLabel lblIdade;
+     private JTextField txtIdade;
+     private JLabel lblTelefone;
+     private JTextField txtTelefone;
+     private JLabel lblEmail;
+     private JTextField txtEmail;
+     
      private Container ctn;
      
      public Listando () {
-     setSize(400, 400);
+     setSize(400, 500);
      setTitle("Listando");
      ctn = getContentPane();
      lblListando = new JLabel ("Listando");
+     lblCpf = new JLabel ("CPF");
+     txtCpf = new JTextField ();
      btnSair = new JButton("Sair");
+     btnListar = new JButton("Procurar");
+     lblNome = new JLabel ("Nome");
+     txtNome = new JTextField ();
+     lblIdade = new JLabel ("Idade");
+     txtIdade = new JTextField ();
+     lblTelefone = new JLabel ("Telefone");
+     txtTelefone = new JTextField ();
+     lblEmail = new JLabel ("Email");
+     txtEmail = new JTextField ();
      
      ctn.setLayout(null);
      
      lblListando.setBounds(190, 50, 100, 25);
-     btnSair.setBounds(0, 330, 50, 30);
+     lblCpf.setBounds(100, 150, 100, 25);
+     txtCpf.setBounds(160, 150, 100, 25);
+     lblNome.setBounds(100, 200, 100, 25);
+     txtNome.setBounds(160, 200, 150, 25);
+     lblIdade.setBounds(100, 250, 100, 25);
+     txtIdade.setBounds(160, 250, 150, 25);
+     lblTelefone.setBounds(100, 300, 100, 25);
+     txtTelefone.setBounds(160, 300, 150, 25);
+     lblEmail.setBounds(100, 350, 100, 25);
+     txtEmail.setBounds(160, 350, 180, 25);
+     btnSair.setBounds(0, 440, 50, 30);
+     btnListar.setBounds(260, 150, 100, 30);
      
      
      ctn.add(lblListando);
+     ctn.add(lblCpf);
+     ctn.add(txtCpf);
+     ctn.add(lblNome);
+     ctn.add(txtNome);
+     ctn.add(lblIdade);
+     ctn.add(txtIdade);
+     ctn.add(lblTelefone);
+     ctn.add(txtTelefone);
+     ctn.add(lblEmail);
+     ctn.add(txtEmail);
      ctn.add(btnSair);
+     ctn.add(btnListar);
      
     setVisible(true);
     setLayout(null);
@@ -50,11 +99,36 @@ public class Listando extends JFrame {
         }
     });
      
+     btnListar.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+             cliqueBtnListar();
+            }
+     });
+     
      
      
      }
+     
+     
      private void cliqueBtnSair(){
          this.dispose();
         new Logado();
+     }
+     
+     private void cliqueBtnListar(){
+        String cpf = txtCpf.getText();
+        AlunosDAO alunosDAO = new AlunosDAO ();
+        Alunos alunos = alunosDAO.getAlunos(cpf);
+        if(alunos == null){
+            JOptionPane.showMessageDialog(this, "Aluno não encontrado");
+            
+        } 
+        else {
+            txtNome.setText(alunos.getNome());
+            txtIdade.setText(alunos.getIdade());
+            txtTelefone.setText(alunos.getTelefone());
+            txtEmail.setText(alunos.getEmail());
+        }
      }
 }
