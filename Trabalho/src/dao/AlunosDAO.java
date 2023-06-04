@@ -10,6 +10,8 @@ import com.mysql.jdbc.PreparedStatement;
 import conexao.Conexao;
 import java.sql.SQLException;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -98,6 +100,28 @@ public class AlunosDAO {
             return alunos;
         } catch (SQLException e) {
             
+            return null;
+        }
+    }
+    
+    public List <Alunos> getAlunos()
+    {
+        String sql = "SELECT * FROM alunos";
+        try {
+            PreparedStatement stmt = (PreparedStatement) this.conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            List<Alunos> listaAlunos = new ArrayList<>();
+            while(rs.next()){
+                Alunos alunos = new Alunos();
+                alunos.setCpf(rs.getString("cpf"));
+                alunos.setNome(rs.getString("Nome"));
+                alunos.setIdade(rs.getString("Idade"));
+                alunos.setTelefone(rs.getString("Telefone"));
+                alunos.setEmail(rs.getString("Email"));
+                listaAlunos.add(alunos);
+            }
+            return listaAlunos;
+        } catch (SQLException e) {
             return null;
         }
     }
