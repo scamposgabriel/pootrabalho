@@ -23,6 +23,7 @@ public class Listando extends JFrame {
     
      private JLabel lblListando;
      private JButton btnSair;
+     private JButton btnLtodos;
      private JButton btnListar;
      private JLabel lblCpf;
      private JTextField txtCpf;
@@ -45,7 +46,8 @@ public class Listando extends JFrame {
      lblCpf = new JLabel ("CPF");
      txtCpf = new JTextField ();
      btnSair = new JButton("Sair");
-     btnListar = new JButton("Procurar");
+     btnLtodos = new JButton("Listar Todos");
+     btnListar = new JButton("Procurar por cpf");
      lblNome = new JLabel ("Nome");
      txtNome = new JTextField ();
      lblIdade = new JLabel ("Idade");
@@ -69,7 +71,8 @@ public class Listando extends JFrame {
      lblEmail.setBounds(100, 350, 100, 25);
      txtEmail.setBounds(160, 350, 180, 25);
      btnSair.setBounds(0, 440, 50, 30);
-     btnListar.setBounds(260, 150, 100, 30);
+     btnListar.setBounds(260, 150, 130, 30);
+     btnLtodos.setBounds(200, 400, 100, 50);
      
      
      ctn.add(lblListando);
@@ -85,6 +88,7 @@ public class Listando extends JFrame {
      ctn.add(txtEmail);
      ctn.add(btnSair);
      ctn.add(btnListar);
+     ctn.add(btnLtodos);
      
     setVisible(true);
     setLayout(null);
@@ -106,6 +110,13 @@ public class Listando extends JFrame {
             }
      });
      
+     btnLtodos.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+             cliqueBtnLtodos();
+            }
+     });
+     
      
      
      }
@@ -114,6 +125,11 @@ public class Listando extends JFrame {
      private void cliqueBtnSair(){
          this.dispose();
         new Logado();
+     }
+     
+     private void cliqueBtnLtodos (){
+         ListaAlunos la = new ListaAlunos();
+         la.setVisible(true);
      }
      
      private void cliqueBtnListar(){
