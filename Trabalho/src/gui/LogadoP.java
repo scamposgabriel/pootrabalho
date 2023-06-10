@@ -15,26 +15,26 @@ import javax.swing.JLabel;
  *
  * @author gabrielcampos
  */
-public class Logado extends JFrame {
+public class LogadoP extends JFrame {
     private JLabel lblOpcoes;
     private JButton btnModificar;
     private JButton btnDeletar;
     private JButton btnListar;
     private JButton btnSair;
-    private JButton btnVprof;
+    private JButton btnValun;
     private Container ctn;
     
-    public Logado () {
+    public LogadoP () {
     setSize(400, 400);
     setTitle("Home");
     ctn = getContentPane();
-    lblOpcoes = new JLabel ("Menu Alunos");
+    lblOpcoes = new JLabel ("Menu Professores");
     
     btnModificar = new JButton("Modificar cadastros");
     btnDeletar = new JButton("Deletar cadastros");
     btnListar = new JButton("Listar cadastros");
     btnSair = new JButton("Sair");
-    btnVprof = new JButton("Menu Professores");
+    btnValun = new JButton("Menu Alunos");
     
     
     
@@ -43,19 +43,19 @@ public class Logado extends JFrame {
     ctn.setLayout(null);
     
  
-    lblOpcoes.setBounds(150, 50, 100, 25);
+    lblOpcoes.setBounds(150, 50, 150, 25);
     btnModificar.setBounds(125, 100, 150, 50);
     btnDeletar.setBounds(125, 150, 150, 50);
     btnListar.setBounds(125, 200, 150, 50);
     btnSair.setBounds(0, 342, 50, 30);
-    btnVprof.setBounds(250, 342, 150, 30);
+    btnValun.setBounds(250, 342, 150, 30);
    
     ctn.add(lblOpcoes);
     ctn.add(btnModificar);
     ctn.add(btnDeletar);
     ctn.add(btnListar);
     ctn.add(btnSair);
-    ctn.add(btnVprof);
+    ctn.add(btnValun);
    
     setVisible(true);
     setLayout(null);
@@ -90,10 +90,10 @@ public class Logado extends JFrame {
         }
     });
     
-    btnVprof.addActionListener(new ActionListener() {
+    btnValun.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            cliqueBtnVprof();
+            cliqueBtnValun();
         }
     });
    
@@ -108,21 +108,21 @@ public class Logado extends JFrame {
     
     private void cliqueBtnModificar(){
          this.dispose();
-        new Modificando();
+        new ModificandoP();
      }
     
     private void cliqueBtnDeletar(){
          this.dispose();
-        new Deletando();
+        new DeletandoP();
      }
     
     private void cliqueBtnListar(){
          this.dispose();
-        new Listando();
+        new ListandoP();
      }
-    private void cliqueBtnVprof(){
+    private void cliqueBtnValun(){
         this.dispose();
-        new LogadoP();
+        new Logado();
     }
     
     public static void main (String[] args) {

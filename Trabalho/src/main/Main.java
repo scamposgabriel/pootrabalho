@@ -4,10 +4,7 @@
  */
 package main;
 
-import gui.Cadastro;
 import gui.Login;
-import gui.Tela1;
-import gui.Tela2;
 
 /**
  *

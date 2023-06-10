@@ -65,7 +65,7 @@ public class AlunosDAO {
             stmt.setString(5, alunos.getCpf());
             stmt.execute();
         } catch (SQLException e) {
-            System.out.println("Erro ao editar curso; " + e.getMessage());
+            System.out.println("Erro ao editar alunos; " + e.getMessage());
         }
     }
     
@@ -77,7 +77,7 @@ public class AlunosDAO {
             stmt.setString(1, cpf);
             stmt.execute();
         } catch (Exception e) {
-            System.out.println("Erro ao excluir curso: " + e.getMessage());
+            System.out.println("Erro ao excluir alunos: " + e.getMessage());
         }
     }
     

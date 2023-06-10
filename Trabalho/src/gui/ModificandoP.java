@@ -4,8 +4,8 @@
  */
 package gui;
 
-import beans.Alunos;
-import dao.AlunosDAO;
+import beans.Professores;
+import dao.ProfessoresDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  *
  * @author gabrielcampos
  */
-public class Modificando extends JFrame {
+public class ModificandoP extends JFrame {
     
      private JLabel lblListando;
      private JButton btnSair;
@@ -38,11 +38,11 @@ public class Modificando extends JFrame {
      
      private Container ctn;
      
-     public Modificando () {
+     public ModificandoP () {
      setSize(400, 500);
      setTitle("Modificando");
      ctn = getContentPane();
-     lblListando = new JLabel ("Modificando Alunos");
+     lblListando = new JLabel ("Modificando Professores");
      lblCpf = new JLabel ("Procurar por CPF");
      txtCpf = new JTextField ();
      btnSair = new JButton("Sair");
@@ -59,7 +59,7 @@ public class Modificando extends JFrame {
      
      ctn.setLayout(null);
      
-     lblListando.setBounds(150, 50, 140, 25);
+     lblListando.setBounds(150, 50, 160, 25);
      lblCpf.setBounds(50, 150, 105, 25);
      txtCpf.setBounds(160, 150, 100, 25);
      lblNome.setBounds(100, 200, 100, 25);
@@ -130,15 +130,15 @@ public class Modificando extends JFrame {
                idade = txtIdade.getText(),
                email = txtEmail.getText();
         
-        Alunos alunos = new Alunos();
-        alunos.setCpf(cpf);
-        alunos.setNome(nome);
-        alunos.setIdade(idade);
-        alunos.setTelefone(telefone);
-        alunos.setEmail(email);
+        Professores professores = new Professores();
+        professores.setCpf(cpf);
+        professores.setNome(nome);
+        professores.setIdade(idade);
+        professores.setTelefone(telefone);
+        professores.setEmail(email);
         
-        AlunosDAO alunosDAO = new AlunosDAO();
-        alunosDAO.editar(alunos);
+        ProfessoresDAO professoresDAO = new ProfessoresDAO();
+        professoresDAO.editar(professores);
         
         txtNome.setText("");
         txtIdade.setText("");
@@ -148,22 +148,22 @@ public class Modificando extends JFrame {
      
      private void cliqueBtnSair(){
          this.dispose();
-        new Logado();
+        new LogadoP();
      }
      
      private void cliqueBtnListar(){
         String cpf = txtCpf.getText();
-        AlunosDAO alunosDAO = new AlunosDAO ();
-        Alunos alunos = alunosDAO.getAlunos(cpf);
-        if(alunos == null){
-            JOptionPane.showMessageDialog(this, "Aluno não encontrado");
+        ProfessoresDAO professoresDAO = new ProfessoresDAO ();
+        Professores professores = professoresDAO.getProfessores(cpf);
+        if(professores == null){
+            JOptionPane.showMessageDialog(this, "Professores não encontrado");
             
         } 
         else {
-            txtNome.setText(alunos.getNome());
-            txtIdade.setText(alunos.getIdade());
-            txtTelefone.setText(alunos.getTelefone());
-            txtEmail.setText(alunos.getEmail());
+            txtNome.setText(professores.getNome());
+            txtIdade.setText(professores.getIdade());
+            txtTelefone.setText(professores.getTelefone());
+            txtEmail.setText(professores.getEmail());
         }
      }
 }

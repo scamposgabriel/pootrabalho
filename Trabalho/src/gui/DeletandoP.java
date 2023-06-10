@@ -4,7 +4,7 @@
  */
 package gui;
 
-import dao.AlunosDAO;
+import dao.ProfessoresDAO;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -17,7 +17,7 @@ import javax.swing.JTextField;
  *
  * @author gabrielcampos
  */
-public class Deletando extends JFrame {
+public class DeletandoP extends JFrame {
     
      private JLabel lblDeletando;
      private JButton btnSair;
@@ -26,9 +26,9 @@ public class Deletando extends JFrame {
      private JButton btnDeletar;
      private Container ctn;
      
-     public Deletando () {
+     public DeletandoP () {
      setSize(400, 400);
-     setTitle("Deletando");
+     setTitle("Deletando Professores");
      ctn = getContentPane();
      lblDeletando = new JLabel ("Digite o CPF");
      lblCPF = new JLabel ("CPF");
@@ -68,8 +68,8 @@ public class Deletando extends JFrame {
          @Override
          public void actionPerformed(ActionEvent e) {
              String cpf = txtCPF.getText();
-             AlunosDAO alunosDAO = new AlunosDAO();
-             alunosDAO.excluir(cpf);
+             ProfessoresDAO professoresDAO = new ProfessoresDAO();
+             professoresDAO.excluir(cpf);
              
              txtCPF.setText("");
             }
@@ -80,6 +80,6 @@ public class Deletando extends JFrame {
      }
      private void cliqueBtnSair(){
          this.dispose();
-        new Logado();
+        new LogadoP();
      }
 }
