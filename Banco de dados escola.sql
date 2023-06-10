@@ -28,7 +28,7 @@ materia varchar(50)
 )
 
 
-CREATE TABLE lusuarios(
+CREATE TABLE logins(
     login VARCHAR(30),
     senha VARCHAR(30)
 )
